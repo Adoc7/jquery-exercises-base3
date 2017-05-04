@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <title>Jquery exercices base 3</title>
         <link rel="stylesheet" href="style.css">
+        <script src="jquery.js"></script>
     </head>
     <body>
         <h1>Exercices Jquery base 3</h1>
@@ -12,13 +13,43 @@
         <hr>
         <!-------------------------------------------- Exercice 1 -------------------------------------->
         <h3><em>Exercice 1</em></h3>
-        <p>Céer un bouton et un champ texte dans lequel on affiche le nombre de clics sur le bouton.</p>
+        <p>Créer un bouton et un champ texte dans lequel on affiche le nombre de clics sur le bouton.</p>
 
+
+        <button type="button" onClick="onClick()" id="bt1"><p>Clicks: <span id="clicks">0</span></p></button>
+        <script>
+        var clicks = 0;
+        $('#bt1').click(function(){
+        clicks ++ ;
+        $('#clicks').text(clicks);
+        });
+        </script>
+
+
+  <!-- <button id="bt">Nbre de clics</button>
+        <script>
+               $("#bt").click(function(){
+               alert("On vous ferait vraiment faire n'importe quoi !")
+             });
+           </script> -->
         <hr>
         <!-------------------------------------------- Exercice 2 -------------------------------------->
         <h3>Exercice 2</h3>
-        <p>Céer 2 boutons ("+" et "-") et un champ texte dans lequel on augmente ou baisse le chiffre en fonction des boutons cliqués</p>
-
+        <p>Créer 2 boutons ("+" et "-") et un champ texte dans lequel on augmente ou baisse le chiffre en fonction des boutons cliqués</p>
+        <button type="button" id="bt2"><p>+</p></button>
+        <button type="button" id="bt3"><p>-</p></button>
+         <span id="clickR">0</span>
+        <script>
+        var clicks = 0;
+        $('#bt2').click(function(){
+        clicks ++ ;
+        $('#clickR').text(clicks);
+        });
+        $('#bt3').click(function(){
+        clicks -- ;
+        $('#clickR').text(clicks);
+        });
+        </script>
         <hr>
         <!-------------------------------------------- Exercice 3 -------------------------------------->
         <h3>Exercice 3</h3>
@@ -33,6 +64,41 @@
         </ul>
         </p>
 
+        <div id="rect" >This is a rectangle!</div>
+
+          <button type="button" id="bt4"><p>H= +10px</p></button>
+          <button type="button" id="bt5"><p>Rect. vert</p></button>
+          <button type="button" id="bt6"><p>Color Init.</p></button>
+          <button type="button" id="bt7"><p>Hide Rect.</p></button>
+          <button type="button" id="bt8"><p>Visible Rect.</p></button>
+          <script>
+
+          taille=50;
+          tailleMax=100;
+          tailleBase=10;
+
+          $('#bt4').click(function(){
+            taille=taille+10;
+            $('#rect').css('height',taille+'px');
+          if (taille>=tailleMax){
+            $('#rect').css('height',tailleBase+'px');
+          }
+          });
+
+          $('#bt5').click(function(){
+            $('#rect').css('background-color','green');
+            });
+            $('#bt6').click(function(){
+              $('#rect').css('background-color','grey');
+              });
+              $('#bt7').click(function(){
+                $('#rect').css('display','none');
+                });
+                $('#bt8').click(function(){
+                  $('#rect').css('display','block');
+                  });
+
+          </script>
 
         <hr>
         <!-------------------------------------------- Exercice 4 -------------------------------------->
@@ -46,9 +112,33 @@
         </ul>
         <p><b>Bonus</b> : Quand la réponse est trouvée, on obtient le nombre d'essai que l'on a fait.
         </p>
-        <hr>
 
+  <!-- générer un chiffre aléatoire -->
 
+<section>
+  <input id='entre' type="text" name="entree_nombre" placeholder="Entrez votre nombre ici"><br>
+  <input type="submit" value="Envoyer" id='valid'>
 
+  <h5 id='message'> </h5>
+
+        <script>
+            var solution = Math.floor((Math.random()*100)+1);
+            var compteur=0;
+
+            $('#valid').click(function(){
+            var nombre=$('#entre').val();
+            compteur ++;
+
+            if (nombre > solution){
+                $('#message').text('moins');
+              }else if (nombre < solution){
+                  $('#message').text('plus');
+              }else{
+                $('#message').text('Correct : vous avez gagné en ' + compteur + ' coups');
+              }
+});
+            </script>
+          <hr>
+      </section>
     </body>
 </html>

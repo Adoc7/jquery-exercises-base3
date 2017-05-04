@@ -1,3 +1,19 @@
+#bt1,#bt2,#bt3 {
+  font-size: 30px;
+  font-weight: bold;
+  color:red;
+}
+#clickR{
+  font-size: 50px;
+  font-weight: bold;
+  color:grey;
+}
+#rect{
+  width:400px;
+  height:50px;
+  border:5px solid #000;
+  background-color: grey;
+}
 body{
     border: 2px dashed #222;
     margin: 30px;
